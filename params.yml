@@ -3,7 +3,7 @@
 # The deployment process is divided into various stages.
 
 # Deploy local L1.
-deploy_l1: true
+deploy_l1: false
 
 # Deploy zkevm contracts on L1 (and also fund accounts).
 deploy_zkevm_contracts_on_l1: true
@@ -149,11 +149,11 @@ args:
   zkevm_db_state_password: rHTX7EpajF8zYDPatN32rH3B2pn89dmq
 
   ## L1 configuration.
-  l1_chain_id: 271828
-  l1_preallocated_mnemonic: code code code code code code code code code code code quality
-  l1_funding_amount: 100ether
-  l1_rpc_url: http://el-1-geth-lighthouse:8545
-  l1_ws_url: ws://el-1-geth-lighthouse:8546
+  l1_chain_id: 11155111
+  l1_preallocated_mnemonic: clown hospital lizard diary slot side safe click loud subway innocent dove
+  l1_funding_amount: 1ether
+  l1_rpc_url: https://eth-sepolia.g.alchemy.com/v2/Y-mJROfy_tuFD3B75v3v3OMy2rwqxKrI
+  l1_ws_url: wss://eth-sepolia.g.alchemy.com/v2/Y-mJROfy_tuFD3B75v3v3OMy2rwqxKrI
   # https://github.com/kurtosis-tech/ethereum-package/tree/main?tab=readme-ov-file#configuration
   l1_additional_services: [
     # blockscout, # block explorer
