@@ -1,0 +1,77 @@
+[Log]
+Level = "info"
+Environment = "production"
+Outputs = ["stderr"]
+
+[SyncDB]
+Database = "postgres"
+User = "bridge_user"
+Name = "bridge_db"
+Password = "aXPqaRvgo5DfnTbHtpYS9rMhVpjvb6tY"
+Host = "bridge-db-001"
+Port = "5432"
+MaxConns = 20
+
+[Etherman]
+l1URL = "https://eth-sepolia.g.alchemy.com/v2/Y-mJROfy_tuFD3B75v3v3OMy2rwqxKrI"
+L2URLs = ["http://zkevm-node-rpc-001:8123"]
+
+[Synchronizer]
+SyncInterval = "5s"
+SyncChunkSize = 100
+
+[BridgeController]
+Store = "postgres"
+Height = 32
+
+[BridgeServer]
+GRPCPort = "9090"
+HTTPPort = "8080"
+DefaultPageLimit = 25
+MaxPageLimit = 100
+BridgeVersion = "v1"
+    # Read only
+    [BridgeServer.DB]
+    Database = "postgres"
+    User = "bridge_user"
+    Name = "bridge_db"
+    Password = "aXPqaRvgo5DfnTbHtpYS9rMhVpjvb6tY"
+    Host = "bridge-db-001"
+    Port = "5432"
+    MaxConns = 20
+
+[NetworkConfig]
+GenBlockNumber = "5825309"
+PolygonBridgeAddress = "0x31Ed1657B6f4Bf5eBC6b5cBc8818ecbAbB5Bda68"
+PolygonZkEVMGlobalExitRootAddress = "0x5f7430F42257B11032Cc6EBBDA4574ecD25E502a"
+PolygonRollupManagerAddress = "0x2885c9626394768212c8ba48dCC410786Dd19593"
+PolygonZkEVMAddress = "0x5B1C462ec4D9448cE78904d0CC7A7C631c412035"
+L2PolygonBridgeAddresses = ["0x31Ed1657B6f4Bf5eBC6b5cBc8818ecbAbB5Bda68"]
+
+[ClaimTxManager]
+FrequencyToMonitorTxs = "5s"
+PrivateKey = {Path = "/etc/zkevm/claimtxmanager.keystore", Password = "pSnv6Dh5s9ahuzGzH9RoCDrKAMddaX3m"}
+Enabled = true
+RetryInterval = "1s"
+/etc/zkevm # cat claimtxmanager.keystore 
+{
+  "address": "5f5db0d4d58310f53713ef4df80ba6717868a9f8",
+  "crypto": {
+    "cipher": "aes-128-ctr",
+    "ciphertext": "0f465c3aaa36b561d18ac3e6acc4561171d67944d9521fef4151bd642d60db2c",
+    "cipherparams": {
+      "iv": "020f05a60b055d9e35ea3229997e425b"
+    },
+    "kdf": "scrypt",
+    "kdfparams": {
+      "dklen": 32,
+      "n": 262144,
+      "p": 1,
+      "r": 8,
+      "salt": "2f7ccfce776a78b2ae230ef014501aefe974f52f87ace178e9b15c8420bae2c2"
+    },
+    "mac": "18e47320453c21d9703f99d1d4a095340b27e1bab7c1cb180f5139e73374d801"
+  },
+  "id": "107dd95d-fae2-4598-9fc6-5a0c59fce115",
+  "version": 3
+}

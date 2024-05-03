@@ -1,0 +1,15 @@
+{
+    "polygonRollupManagerAddress": "0x2885c9626394768212c8ba48dCC410786Dd19593",
+    "polygonZkEVMBridgeAddress": "0x31Ed1657B6f4Bf5eBC6b5cBc8818ecbAbB5Bda68",
+    "polygonZkEVMGlobalExitRootAddress": "0x5f7430F42257B11032Cc6EBBDA4574ecD25E502a",
+    "polTokenAddress": "0xc66762a1dFd636175E2d153FD289581A494a7ea6",
+    "zkEVMDeployerContract": "0xe5CF69183CFCF0571E733D59a1a53d4E6ceD6E85",
+    "deployerAddress": "0xE34aaF64b29273B7D567FCFc40544c014EEe9970",
+    "timelockContractAddress": "0xdaF00410275CD34E273D8BEbcc7F14Dd4349dac0",
+    "deploymentRollupManagerBlockNumber": 5825309,
+    "upgradeToULxLyBlockNumber": 5825309,
+    "admin": "0xE34aaF64b29273B7D567FCFc40544c014EEe9970",
+    "trustedAggregator": "0xCae5b68Ff783594bDe1b93cdE627c741722c4D4d",
+    "proxyAdminAddress": "0xA596E5f3D2d522A13C9Ee78320558fEB1160E973",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000006"
+   }
