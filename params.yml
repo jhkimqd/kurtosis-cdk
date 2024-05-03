@@ -151,7 +151,7 @@ args:
   ## L1 configuration.
   l1_chain_id: 11155111
   l1_preallocated_mnemonic: clown hospital lizard diary slot side safe click loud subway innocent dove
-  l1_funding_amount: 1ether
+  l1_funding_amount: 0.3ether
   l1_rpc_url: https://eth-sepolia.g.alchemy.com/v2/Y-mJROfy_tuFD3B75v3v3OMy2rwqxKrI
   l1_ws_url: wss://eth-sepolia.g.alchemy.com/v2/Y-mJROfy_tuFD3B75v3v3OMy2rwqxKrI
   # https://github.com/kurtosis-tech/ethereum-package/tree/main?tab=readme-ov-file#configuration
