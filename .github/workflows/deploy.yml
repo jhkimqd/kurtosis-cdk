@@ -148,8 +148,10 @@ jobs:
         run: ./combine-ymls.sh
 
       - name: Run Starlark
-        run: kurtosis run --enclave=${{ env.ENCLAVE_NAME }} --args-file=${{ matrix.file_name }} --show-enclave-inspect=false .
-
+        run: |
+          cp ${{ github.workspace }}/cdk/test/config/kurtosis-cdk-node-config.toml.template ${{ github.workspace }}/templates/trusted-node/cdk-node-config.toml
+          kurtosis run --enclave=${{ env.ENCLAVE_NAME }} --args-file=${{ matrix.file_name }} --show-enclave-inspect=false .
+          
       - name: Inspect enclave
         run: kurtosis enclave inspect ${{ env.ENCLAVE_NAME }}
 
