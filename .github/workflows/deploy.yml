@@ -150,11 +150,31 @@ jobs:
       - name: Run Starlark
         run: kurtosis run --enclave=${{ env.ENCLAVE_NAME }} --args-file=${{ matrix.file_name }} --show-enclave-inspect=false .
 
-      - name: Run CDK e2e bats test
-        run: bats .
-
       - name: Inspect enclave
         run: kurtosis enclave inspect ${{ env.ENCLAVE_NAME }}
+
+      - name: Run CDK e2e bats test
+        run: |
+          sequencer_type=$(yq --raw-output '.args.sequencer_type' ${{ matrix.file_name }})
+          rpc_name=""
+          if [[ "$sequencer_type" == "erigon" ]]; then
+            rpc_name="cdk-erigon-rpc-001"
+          elif [[ "$sequencer_type" == "zkevm" ]]; then
+            echo "Skipping CDK e2e tests for legacy stack."
+            exit 0
+          elif [[ "$sequencer_type" == "null" ]]; then
+            rpc_name="cdk-erigon-rpc-001"
+          else
+            echo "Unknown sequencer type: $sequencer_type"
+            exit 1
+          fi
+          echo "RPC name: $rpc_name"
+          bats .
+        working-directory: ${{ github.workspace }}/cdk/test
+        env:
+          KURTOSIS_FOLDER: ${{ github.workspace }}
+          KURTOSIS_ENCLAVE: ${{ env.ENCLAVE_NAME }}
+          BATS_LIB_PATH: /usr/lib/
       
       - name: Verify static ports
         run: |
