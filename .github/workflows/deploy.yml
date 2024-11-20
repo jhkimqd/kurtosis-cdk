@@ -155,7 +155,7 @@ jobs:
 
       - name: Run CDK e2e bats test
         run: |
-          sequencer_type=$(yq --raw-output '.args.sequencer_type' ${{ matrix.file_name }})
+          sequencer_type=$(yq --raw-output '.args.sequencer_type' ${{ github.workspace }}/${{ matrix.file_name }})
           rpc_name=""
           if [[ "$sequencer_type" == "erigon" ]]; then
             rpc_name="cdk-erigon-rpc-001"
